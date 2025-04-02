@@ -26,6 +26,7 @@ class Profile(models.Model):
 class Question(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='questions')
     text = models.TextField()
+    generated_response = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

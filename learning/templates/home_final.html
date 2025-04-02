@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+{% block content %} 
+
+<!-- Hero Section -->
+<div class="hero text-white text-center py-5 mb-5">
+    <h1 class="display-4">Welcome to the Smart E-Learning Platform</h1>
+    <p class="lead">Submit your problems and get AI-powered solutions instantly!</p>
+    <i class="fa fa-laptop fa-3x mb-4" aria-hidden="true"></i>
+    <a href="#problem-form" class="btn btn-light btn-lg get-started-btn">Get Started</a>
+</div>
+
+<!-- Parallax Section -->
+<div class="parallax-container">
+    <div class="parallax-text">
+        <h2 class="text-white">AI-Driven Learning</h2>
+        <p class="lead">Experience the future of education with personalized learning paths.</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <h2>Welcome {{request.user.username}}</h2>
+
+    <!-- Problem Form -->
+    <div id="problem-form" class="mt-5">
+        <h2 class="text-center">Submit Your Problem</h2>
+        <form method="POST" action="{% url 'submit_problem' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="problem_statement" class="form-label">Enter your problem:</label>
+                <textarea class="form-control" id="problem_statement" name="problem_statement" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit Problem</button>
+
+        </form>
+    </div>
+
+    <!-- <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Logout</a> -->
+</div>
+
+{% endblock %}

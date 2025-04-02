@@ -33,8 +33,15 @@
     </style>
 </head>
 <body>
-
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 <div class="container">
+    
     <h3 class="text-center mb-4">Login</h3>
     <form method="POST">
         {% csrf_token %}

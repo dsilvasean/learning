@@ -55,7 +55,7 @@
     <!-- Problem Form -->
     <div class="mt-5">
         <h2 class="text-center">Submit Your Problem</h2>
-        <form method="POST">
+        <form method="POST" action="./submit_problem/">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="problem_statement" class="form-label">Enter your problem:</label>

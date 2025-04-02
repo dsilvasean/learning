@@ -1,0 +1,81 @@
+{% extends "base.html" %} 
+{% block content %} 
+<!-- Hero Section -->
+<div class="hero">
+    <h1 class="display-4">Solution to Your Problem</h1>
+    <p class="lead">Your problem has been solved. Check the result below!</p>
+</div>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Solution to Your Problem</h2>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Click to show
+              </button>
+            </h5>
+          </div>
+      
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                {{gemini_prompt}}
+            </div>
+          </div>
+        </div>
+        </div>
+
+    <!-- Display the original problem statement -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="text-success">Your Problem Statement: {{user_prompt}}</h3>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    <!-- Display the generated prompt from Gemini AI
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="text-primary">Generated Prompt for LumaAI:</h3>
+            <p class="lead text-muted">{{ gemini_prompt }}</p>
+        </div>
+    </div> -->
+
+    <!-- Video Section -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h3 class="text-info">Watch the Solution Video:</h3>
+            
+                <!-- Embedded Video Player -->
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fXW-QjBsruE?si=mlctHZr-Vb3Zg1ls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <!-- <video class="w-100 rounded shadow" controls>
+                    <source src="{{ video_url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> -->
+                <br>
+
+                <!-- Download Button -->
+                <div class="mt-3">
+                    <a href="{{ video_url }}" download="solution_video.mp4" class="btn btn-success btn-lg px-5">
+                        Download Video
+                    </a>
+                </div>
+           
+                <p class="text-danger">Sorry, the video is still being processed. Please try again later.</p>
+            
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="home1.html" class="btn btn-secondary btn-lg px-5">Submit Another Problem</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
