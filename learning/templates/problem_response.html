@@ -1,0 +1,51 @@
+<!-- problem_response.html -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Solution to Your Problem</h2>
+
+    <!-- Display the original problem statement -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="text-success">Your Problem Statement:</h3>
+            <p class="lead">{{ problem_statement }}</p>
+        </div>
+    </div>
+
+    <!-- Display the generated prompt from Gemini AI -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="text-primary">Generated Prompt for LumaAI:</h3>
+            <p class="lead text-muted">{{ gemini_prompt }}</p>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h3 class="text-info">Watch the Solution Video:</h3>
+            {% if video_url %}
+                <!-- Embedded Video Player -->
+                <video class="w-100 rounded shadow" controls>
+                    <source src="{{ video_url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <br>
+                
+                <!-- Download Button -->
+                <div class="mt-3">
+                    <a href="{{ video_url }}" download="solution_video.mp4" class="btn btn-success btn-lg px-5">
+                        Download Video
+                    </a>
+                </div>
+            {% else %}
+                <p class="text-danger">Sorry, the video is still being processed. Please try again later.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="{% url 'submit_problem' %}" class="btn btn-secondary btn-lg px-5">Submit Another Problem</a>
+        </div>
+    </div>
+</div>
