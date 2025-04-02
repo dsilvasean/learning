@@ -154,7 +154,7 @@ def profile_view(request):
         'questions': questions,  # User's questions
     }
 
-    return render(request, 'profile.html', context)
+    return render(request, 'profile_final.html', context)
 
 def logout_user(request):
     logout(request)

@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% block content %} 
+
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1 class="display-4">Welcome, {{user}}</h1>
+    <p class="lead">Here are your profile details.</p>
+</div>
+
+<!-- Profile Information -->
+<div class="profile-details-header">
+    Profile Details
+</div>
+
+<div class="container">
+    <div class="bg-white p-4 rounded shadow">
+        <div class="mb-3">
+            <strong>Username:  {{user.username}}</strong>
+        </div>
+        <div class="mb-3">
+            <strong>Email:  {{user.email}}</strong>
+        </div>
+        <div class="mb-3">
+            <strong>Date Joined: </strong>
+        </div>
+        <div class="mb-3">
+            <strong>Last Login: </strong>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-primary w-100">Go to Main Page</a>
+    </div>
+</div>
+
+
+
+{% endblock %}
